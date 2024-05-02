@@ -26,3 +26,10 @@ const post = [
 app.get('/', (req, res) => {
     res.render('index', {post})
 })
+
+//rota para exibir uma postagem individual
+app.get('/post/:id', (req, res) => {
+    const id = req.params.id
+    const post = post.find(post => post.id === parseInt(id))
+    res.render('post', {post})
+})
