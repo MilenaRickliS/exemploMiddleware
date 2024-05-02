@@ -41,5 +41,5 @@ app.get('/add', (req, res) => {
 
 //subir servidor
 app.listen(port, () =>{
-    console.log('Servidor rodando')
+    console.log('Servidor rodando na porta', {port})
 })
