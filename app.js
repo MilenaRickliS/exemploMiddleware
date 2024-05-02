@@ -2,4 +2,27 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//simular um banco de dados
+const post = [
+    {
+        id: 1,
+        titulo: 'Primeira Postagem',
+        conteudo: 'Este é o conteúdo da primeira postagem'
+    },
+    {
+        id: 2,
+        titulo: 'Segunda Postagem',
+        conteudo: 'Este é o conteúdo da segunda postagem'
+    },
+    {
+        id: 3,
+        titulo: 'Terceira Postagem',
+        conteudo: 'Este é o conteúdo da terceira postagem'
+    }
+];
 
+//rota principal 
+
+app.get('/', (req, res) => {
+    res.render('index', {post})
+})
