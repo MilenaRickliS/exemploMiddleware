@@ -33,3 +33,13 @@ app.get('/post/:id', (req, res) => {
     const post = post.find(post => post.id === parseInt(id))
     res.render('post', {post})
 })
+
+//rota para adicionar uma postagem
+app.get('/add', (req, res) => {
+    res.render('add');
+})
+
+//subir servidor
+app.listen(port, () =>{
+    console.log('Servidor rodando')
+})
