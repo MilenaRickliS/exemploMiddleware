@@ -13,8 +13,6 @@ app.use(express.static('public'));
 //configurar bodyParser do formulario
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-
 //simular um banco de dados
 const post = [
     {
@@ -49,6 +47,14 @@ app.get('/post/:id', (req, res) => {
 //rota para adicionar uma postagem
 app.get('/add', (req, res) => {
     res.render('add');
+})
+
+// Rota para processar o formulário
+app.post('/add', (req, res) => {
+    const {titulo, conteudo} = req.body;
+    const id = post.length + 1;
+    post.push({id, titulo, conteudo});
+    res.redirect('/'); 
 })
 
 //subir servidor
