@@ -1,6 +1,19 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const bodyParser = require('body-parser')
+
+//configurar EJS como mecanismo de visualização
+app.set('views engine', 'ejs'); // extensão dos arquivos
+app.set('views', __dirname + '/views'); //onde estão os arquivos
+
+//configurar o estilo que esta na public
+app.use(express.static('public'));
+
+//configurar bodyParser do formulario
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 //simular um banco de dados
 const post = [
@@ -22,7 +35,6 @@ const post = [
 ];
 
 //rota principal 
-
 app.get('/', (req, res) => {
     res.render('index', {post})
 })
